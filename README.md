@@ -1,47 +1,41 @@
-# Project Name
+# FastAPI Machine Learning Model
 
-A brief description of the project.
+This project is a simple FastAPI application that uses a pre-trained machine learning model to make predictions. The model is a Random Forest classifier that has been trained and serialized using Python's `pickle` module.
 
-## Table of Contents
+## Getting Started
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [API Documentation](#api-documentation)
-- [Contributing](#contributing)
-- [License](#license)
+To get started with this project, clone the repository and install the necessary dependencies.
 
-## Installation
+```bash
+git clone <https://github.com/DiegoElian02/pruebas_api.git>
+cd <repository>
+pip install -r requirements.txt
+```
 
-1. Clone the repository:
+## Running the Application
+To run the application, use the following command:
 
-    ```bash
-    git clone https://github.com/your-username/project-name.git
-    ```
+```bash
+uvicorn main:app --reload
+```
 
-2. Install the dependencies:
+This will start the FastAPI server on your local machine.
 
-    ```bash
-    pip install -r requirements.txt
-    ```
+## API Endpoints
+The application has a single API endpoint:
 
-## Usage
+* /predict/: This endpoint accepts GET requests with the following parameters: Pclass, Age, SibSp, Parch, Embarked_C, Embarked_Q, Embarked_S, is_male. It returns a JSON response with the prediction from the model.
 
-1. Start the server:
+## Example
+Here is an example of how to use the /predict/ endpoint:
 
-    ```bash
-    uvicorn main:app --reload
-    ```
+```bash
+curl -X GET "http://localhost:80/predict/?Pclass=3&Age=22.0&SibSp=1&Parch=0&Embarked_C=0&Embarked_Q=0&Embarked_S=1&is_male=1"
+```
+This will return a JSON response like the following:
 
-2. Open your browser and go to `http://localhost:8000` to access the API.
-
-## API Documentation
-
-The API documentation is automatically generated using Swagger UI. You can access it by visiting `http://localhost:8000/docs` in your browser.
-
-## Contributing
-
-Contributions are welcome! If you find any issues or have suggestions, please open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
+```bash
+{
+  "prediction": 0
+}
+```
