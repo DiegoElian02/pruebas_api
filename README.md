@@ -4,22 +4,22 @@ This project is a simple FastAPI application that uses a pre-trained machine lea
 
 ## Getting Started
 
-To get started with this project, clone the repository and install the necessary dependencies.
+To get started with this project, clone the repository, build the container and run it
 
 ```bash
-git clone <https://github.com/DiegoElian02/pruebas_api.git>
-cd <repository>
-pip install -r requirements.txt
+git clone https://github.com/DiegoElian02/pruebas_api.git
+cd pruebas_api
+docker build -t titanic_api .
 ```
 
 ## Running the Application
-To run the application, use the following command:
+To run the container that runs the app, use the following command:
 
 ```bash
-uvicorn main:app --reload
+docker run -p 80:80 titanic_api
 ```
 
-This will start the FastAPI server on your local machine.
+This will start the Docker container and the FastAPI server on your local machine.
 
 ## API Endpoints
 The application has a single API endpoint:
@@ -30,7 +30,7 @@ The application has a single API endpoint:
 Here is an example of how to use the /predict/ endpoint:
 
 ```bash
-curl -X GET "http://localhost:80/predict/?Pclass=3&Age=22.0&SibSp=1&Parch=0&Embarked_C=0&Embarked_Q=0&Embarked_S=1&is_male=1"
+curl "http://localhost:80/predict/?Pclass=3&Age=22.0&SibSp=1&Parch=0&Embarked_C=0&Embarked_Q=0&Embarked_S=1&is_male=1"
 ```
 This will return a JSON response like the following:
 
