@@ -24,7 +24,7 @@ This will start the Docker container and the FastAPI server on your local machin
 ## API Endpoints
 The application has a single API endpoint:
 
-* /predict/: This endpoint accepts GET requests with the following parameters: Pclass, Age, SibSp, Parch, Embarked_C, Embarked_Q, Embarked_S, is_male. It returns a JSON response with the prediction from the model.
+* /predict/: This endpoint accepts requests with the following parameters: Pclass, Age, SibSp, Parch, Embarked_C, Embarked_Q, Embarked_S, is_male. It returns a JSON response with the prediction from the model.
 
 ## Example
 Here is an example of how to use the /predict/ endpoint:
