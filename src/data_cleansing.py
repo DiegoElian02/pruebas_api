@@ -1,6 +1,6 @@
 import pandas as pd
-import numpy as np
-from sklearn.impute import KNNImputer
+#import numpy as np
+#from sklearn.impute import KNNImputer
 
 # def fill_na_knn(df : pd.DataFrame(), columna : str, neighbors : int):
 
@@ -10,7 +10,7 @@ from sklearn.impute import KNNImputer
 #     df[columna] =  c[:,idx]
 #     return train
 
-def remove_outliers(df : pd.DataFrame(), rango : float, columna :  str):
+def remove_outliers(df, rango : float, columna :  str):
     # Select only numeric columns
     df_c = df[[columna]]
     numeric_cols = df_c.select_dtypes(include=['number'])
